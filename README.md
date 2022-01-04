@@ -1,6 +1,11 @@
 # ReksaDanaMock
 ## What is it?
 It's an mock app made solely for the purpose of passing the technical assignment test
+## Tools
+1. Xcode
+2. Swift 5.0
+3. Cocoapod
+4. Github desktop
 ## Dependencies
 1. RxSwift
 2. Charts
