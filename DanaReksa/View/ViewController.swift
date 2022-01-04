@@ -103,7 +103,7 @@ extension ViewController:ResultDelegate {
                 blueTitle: self.viewModel.imbalHasilData[2].name ?? "",
                 blueAvatar: self.viewModel.imbalHasilData[2].details?.imAvatar ?? "")
             //MARK: SHIT
-            self.viewModel.imbalHasilData.count != 2 ? self.tableHeaderView.removeBlueViews() : print("not == 2")
+            self.viewModel.imbalHasilData.count == 2 ? self.tableHeaderView.removeBlueViews() : print("not == 2")
         }
     }
     
@@ -130,7 +130,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: detailCellIdentifier, for: indexPath) as! DetailTableViewCell
             cell.selectionStyle = .none
             cell.contentView.backgroundColor = UIColor.surfaceDark
-            if viewModel.imbalHasilData.count != 3 {
+            if viewModel.imbalHasilData.count == 3 {
                 cell.initializeBlueViews()
             }
             return cell
@@ -155,7 +155,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
                     data: viewModel.imbalHasilData[2],
                     idx: indexPath.section) ?? " "
             )
-            if viewModel.imbalHasilData.count != 3 {
+            if viewModel.imbalHasilData.count == 3 {
                 cell.initializeBlueViews()
             }
         }
