@@ -38,6 +38,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backButtonIcon" translatesAutoresizingMaskIntoConstraints="NO" id="FFb-vS-wBl">
+                                <rect key="frame" x="20" y="68" width="16" height="16"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -45,8 +48,10 @@
                             <constraint firstItem="Db0-V3-xTy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="A1w-DM-xFw"/>
                             <constraint firstItem="uXi-Xz-WST" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="81" id="PRw-xG-rMY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Db0-V3-xTy" secondAttribute="trailing" constant="20" id="XX3-dJ-Dti"/>
+                            <constraint firstItem="FFb-vS-wBl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ceF-np-1c7"/>
                             <constraint firstItem="Db0-V3-xTy" firstAttribute="top" secondItem="uXi-Xz-WST" secondAttribute="bottom" constant="18" id="gVw-Qu-mAt"/>
                             <constraint firstItem="uXi-Xz-WST" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="ghu-c5-obl"/>
+                            <constraint firstItem="FFb-vS-wBl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="qfZ-94-Tog"/>
                         </constraints>
                     </view>
                     <connections>
@@ -59,6 +64,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButtonIcon" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
