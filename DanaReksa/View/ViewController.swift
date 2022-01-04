@@ -57,7 +57,6 @@ final class ViewController: UIViewController {
         
     }
     private func setupTableView() {
-        
         self.tableView.tableHeaderView = tableHeaderView
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         let footerView = UIView(
@@ -103,6 +102,8 @@ extension ViewController:ResultDelegate {
                 purpleAvatar: self.viewModel.imbalHasilData[1].details?.imAvatar ?? "",
                 blueTitle: self.viewModel.imbalHasilData[2].name ?? "",
                 blueAvatar: self.viewModel.imbalHasilData[2].details?.imAvatar ?? "")
+            //MARK: SHIT
+            self.viewModel.imbalHasilData.count != 2 ? self.tableHeaderView.removeBlueViews() : print("not == 2")
         }
     }
     
@@ -127,10 +128,17 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 7{
             let cell = tableView.dequeueReusableCell(withIdentifier: detailCellIdentifier, for: indexPath) as! DetailTableViewCell
+            cell.selectionStyle = .none
+            cell.contentView.backgroundColor = UIColor.surfaceDark
+            if viewModel.imbalHasilData.count != 3 {
+                cell.initializeBlueViews()
+            }
             return cell
         }
         if indexPath.section == 8 {
-        
+            if viewModel.imbalHasilData.count == 3 {
+                //cell.initializeBlueViews()
+            }
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: secondaryCellIdentifier, for: indexPath) as! SecondaryTableViewCell
         cell.selectionStyle = .none
@@ -147,6 +155,9 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
                     data: viewModel.imbalHasilData[2],
                     idx: indexPath.section) ?? " "
             )
+            if viewModel.imbalHasilData.count != 3 {
+                cell.initializeBlueViews()
+            }
         }
         return cell
     }
@@ -155,7 +166,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
         if indexPath.section == 7 {
             return 30
         }
-        if indexPath.section == 9 {
+        if indexPath.section == 8 {
             return 0
         }
         return UITableView.automaticDimension

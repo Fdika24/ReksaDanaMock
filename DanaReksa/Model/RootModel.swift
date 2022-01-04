@@ -21,6 +21,7 @@ struct Root<T:Codable>: Codable {
 
 //MARK: Type
 public enum investmentType:Int {
+    case primary = 69
     case jenis = 0
     case imbalHasil = 1
     case danaKelolaan = 2
@@ -50,6 +51,8 @@ public enum investmentType:Int {
         case .stop :
             return " "
         case .itman:
+            return " "
+        case .primary:
             return " "
         }
     }
@@ -110,7 +113,6 @@ struct Details: Codable {
 
 //MARK: CHARTS
 
-//let data: [String: DatumValue]?
 
 struct Welcome: Codable {
     let code: Int?

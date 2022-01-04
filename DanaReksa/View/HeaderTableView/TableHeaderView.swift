@@ -12,6 +12,10 @@ protocol imbalHasilSelectorDelegate:AnyObject {
     func didChangeSelectorIndex(idx:Int)
 }
 
+protocol chartDelegate:AnyObject {
+    
+}
+
 class TableHeaderView: UIView {
     weak var delegate:imbalHasilSelectorDelegate?
     
@@ -82,8 +86,9 @@ class TableHeaderView: UIView {
         super.init(frame: frame)
         self.addSubview(bottomBGView)
         self.addSubview(lineChart)
+        //set tag on blueView
+        blueView.tag = 69
         //
-        //self.initializeSegmentedControl()
         self.initiateStackView()
         //
         //yearSegment.frame = CGRect.init(x: 0, y: 0, width: self.bounds.width-32, height: 50)
@@ -125,8 +130,8 @@ class TableHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func initializeSegmentedControl() {
-
+    public func removeBlueViews() {
+        blueView.removeFromSuperview()
     }
     
     public func setCardContent(

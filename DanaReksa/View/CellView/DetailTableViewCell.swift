@@ -63,8 +63,8 @@ class DetailTableViewCell: UITableViewCell {
     private func initializeViews() {
         
     }
+    let stackView = UIStackView()
     private func initializeStackView() {
-        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -72,7 +72,6 @@ class DetailTableViewCell: UITableViewCell {
         stackView.spacing = 10
         stackView.addArrangedSubview(greenView)
         stackView.addArrangedSubview(purpleView)
-        stackView.addArrangedSubview(blueView)
         self.contentView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
@@ -82,5 +81,9 @@ class DetailTableViewCell: UITableViewCell {
             stackView.heightAnchor.constraint(equalToConstant: 50),
             stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
+    }
+    
+    public func initializeBlueViews() {
+        stackView.addArrangedSubview(blueView)
     }
 }

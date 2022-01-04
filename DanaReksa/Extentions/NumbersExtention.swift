@@ -37,3 +37,25 @@ extension Int {
 }
 
 //MARK: Float
+//MARK: Double
+extension Double {
+    func getNumType() -> String {
+        var ans = ""
+        if self >= Double(setrilyun) {
+            ans =  "\(String(format: "%.2f", Float(self)/Float(setrilyun))) Triliun"
+        }
+        else if self >= Double(semilyar) {
+            ans =  "\(String(format: "%.2f", Float(self)/Float(semilyar))) Miliar"
+        }
+        else if self >= Double(sejuta) {
+            ans =  "\(String(format: "%.1f", Float(self)/Float(sejuta))) Juta"
+        }
+        else if self >= Double(seribu) {
+            ans = "\(self/Double(seribu)) Ribu"
+        }
+        else {
+            ans = "\(self)"
+        }
+        return ans.replacingOccurrences(of: ".", with: ",", options: .literal, range: nil)
+    }
+}

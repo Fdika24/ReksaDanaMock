@@ -73,9 +73,12 @@ final class ViewModelDelegate {
         case 1:
             return ""
         case 2:
-            return data.details?.totalUnit?.getNumType()
+            let tot = Double(data.details?.totalUnit ?? 0)
+            let nav = data.details?.nav ?? 0
+            return (tot * nav).getNumType()
         case 3:
             return data.details?.minSubscription?.getNumType()
+        case 4: return ""
         case 5 :
             return data.details?.typeID == 3 ? "Tinggi" : "Rendah"
         case 6 :
