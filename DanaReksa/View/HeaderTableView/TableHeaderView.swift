@@ -132,6 +132,10 @@ class TableHeaderView: UIView {
     
     public func removeBlueViews() {
         blueView.removeFromSuperview()
+        tinyDetailView.removeBlueView()
+        tinyDetailView.frame = CGRect(
+            x: 16, y: 10,
+            width:UIScreen.main.bounds.width*0.60 , height: 30)
     }
     
     public func setCardContent(

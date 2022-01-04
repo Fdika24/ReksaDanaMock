@@ -104,5 +104,7 @@ class TinyDetailView: UIView {
         stackView.addArrangedSubview(blueItem)
         stackView.addArrangedSubview(dateLabel)
     }
-    
+    public func removeBlueView() {
+        blueItem.removeFromSuperview()
+    }
 }
