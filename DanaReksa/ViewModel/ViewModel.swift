@@ -66,19 +66,21 @@ final class ViewModelDelegate {
 
     }
     
+    //todo: use enum above
     public func getTitleData(data:Datum,idx:Int) -> String? {
         switch idx {
         case 0:
             return data.details?.type
         case 1:
-            return ""
+            return data.details?.typeID == 3 ? "\(data.details?.returnFiveYear ?? 0)% / thn" : "\(String(describing: data.details?.returnOneYear ?? 0))% / thn"
         case 2:
             let tot = Double(data.details?.totalUnit ?? 0)
             let nav = data.details?.nav ?? 0
             return (tot * nav).getNumType()
         case 3:
             return data.details?.minSubscription?.getNumType()
-        case 4: return ""
+        case 4:
+            return data.details?.typeID == 3 ? "5 Tahun" : "1 Tahun"
         case 5 :
             return data.details?.typeID == 3 ? "Tinggi" : "Rendah"
         case 6 :

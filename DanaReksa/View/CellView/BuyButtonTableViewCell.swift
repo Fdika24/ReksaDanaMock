@@ -1,5 +1,5 @@
 //
-//  DetailTableViewCell.swift
+//  BuyButtonTableViewCell.swift
 //  DanaReksa
 //
 //  Created by Farhandika on 04/01/22.
@@ -7,63 +7,51 @@
 
 import UIKit
 
-protocol tapDetailButton:AnyObject {
-    func didTapButton(identifier:Int)
-}
-
-class DetailTableViewCell: UITableViewCell {
+class BuyButtonTableViewCell: UITableViewCell {
+    
     private lazy var greenView:UIButton = {
         let view = UIButton()
-        view.setTitle("Detail", for: .normal)
-        view.setTitleColor(UIColor.greenBareksaDark, for: .normal)
-        view.backgroundColor = .white
+        view.setTitle("Beli", for: .normal)
+        view.setTitleColor(UIColor.black, for: .normal)
+        view.backgroundColor = .greenBareksaNormal
         view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 5
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.greenBareksaDark.cgColor
         return view
     }()
     
     private lazy var purpleView:UIButton = {
         let view = UIButton()
-        view.setTitle("Detail", for: .normal)
-        view.setTitleColor(UIColor.greenBareksaDark, for: .normal)
-        view.backgroundColor = .white
+        view.setTitle("Beli", for: .normal)
+        view.setTitleColor(UIColor.black, for: .normal)
+        view.backgroundColor = .greenBareksaNormal
+        view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 5
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.greenBareksaDark.cgColor
-        view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         return view
     }()
     
     private lazy var blueView:UIButton = {
         let view = UIButton()
-        view.setTitle("Detail", for: .normal)
-        view.setTitleColor(UIColor.greenBareksaDark, for: .normal)
+        view.setTitle("Beli", for: .normal)
+        view.setTitleColor(UIColor.black, for: .normal)
+        view.backgroundColor = .greenBareksaNormal
         view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        view.backgroundColor = .white
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 5
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.greenBareksaDark.cgColor
         return view
     }()
+    private let stackView = UIStackView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.backgroundColor = .clear
-        self.initializeStackView()
+        initializeStackView()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
-    private func initializeViews() {
-        
-    }
-    let stackView = UIStackView()
+    
     private func initializeStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -86,4 +74,5 @@ class DetailTableViewCell: UITableViewCell {
     public func initializeBlueViews() {
         stackView.addArrangedSubview(blueView)
     }
+    
 }

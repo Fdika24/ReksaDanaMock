@@ -21,14 +21,16 @@ extension UIImage{
     }
 }
 
-/// note : need to add error handler
+/// note : need to add error handler, make it reactive
 extension UIImageView {
     func loadImageRemotely(link:String) {
         guard let url = URL(string: link) else { return }
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url)
+            // simple error handler
+            guard let data = data else { return }
             DispatchQueue.main.async {
-                self.image = UIImage(data: data!)
+                self.image = UIImage(data: data)
             }
         }
     }

@@ -32,6 +32,7 @@
 		FF97B88A2782ADC00015CBDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF97B8892782ADC00015CBDB /* Assets.xcassets */; };
 		FF97B88D2782ADC00015CBDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF97B88B2782ADC00015CBDB /* LaunchScreen.storyboard */; };
 		FF97B8972782BA2E0015CBDB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF97B8962782BA2E0015CBDB /* ViewModel.swift */; };
+		FFE9CF1F278492390051E73C /* BuyButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9CF1E278492390051E73C /* BuyButtonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		FF97B88C2782ADC00015CBDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF97B88E2782ADC00015CBDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF97B8962782BA2E0015CBDB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		FFE9CF1E278492390051E73C /* BuyButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButtonTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				FF8F29E12783357800E62CF1 /* CellIdentifier.swift */,
 				FF5E4DFE278455E5000CA459 /* DetailTableViewCell.swift */,
 				FF5E4E04278478AC000CA459 /* PrimaryTableViewCell.swift */,
+				FFE9CF1E278492390051E73C /* BuyButtonTableViewCell.swift */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				FF97B8812782ADBC0015CBDB /* AppDelegate.swift in Sources */,
 				FF8F29DF2783328400E62CF1 /* SecondaryTableViewCell.swift in Sources */,
 				FF97B8972782BA2E0015CBDB /* ViewModel.swift in Sources */,
+				FFE9CF1F278492390051E73C /* BuyButtonTableViewCell.swift in Sources */,
 				FF46B9332782E95F0049B69D /* BaseViewController.swift in Sources */,
 				FF5E4DF827842A2A000CA459 /* NumbersExtention.swift in Sources */,
 				FF46B9312782E6430049B69D /* SegmentedControlExtention.swift in Sources */,

@@ -13,6 +13,10 @@ extension UIColor {
     static var greenBareksaLight:UIColor { //background: rgba(226, 235, 221, 1);
         return UIColor(red: 226/255, green: 235/255, blue: 221/255, alpha: 1.0)
     }
+    //background: rgba(130, 195, 65, 1);
+    static var greenBareksaNormal:UIColor {
+        return UIColor(red: 130/255, green: 195/255, blue: 65/255, alpha: 1)
+    }
     //border: 1px solid rgba(75, 139, 38, 1)
     static var greenBareksaDark:UIColor = UIColor(red: 75/255, green: 139/255, blue: 38/255, alpha: 1)
     

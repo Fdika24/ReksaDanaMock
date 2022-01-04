@@ -12,14 +12,16 @@ protocol imbalHasilSelectorDelegate:AnyObject {
     func didChangeSelectorIndex(idx:Int)
 }
 
-protocol chartDelegate:AnyObject {
-    
+protocol ChartDataSource:AnyObject {
+    func provideDataSatu() -> [ChartDataEntry]
+    func provideDataDua() -> [ChartDataEntry]
+    func provideDataTiga() -> [ChartDataEntry]
 }
 
 class TableHeaderView: UIView {
     weak var delegate:imbalHasilSelectorDelegate?
-    
-    private lazy var lineChart:LineChartView = {
+    weak var dataSource:ChartDataSource?
+    public lazy var lineChart:LineChartView = {
         let chart = LineChartView()
         chart.translatesAutoresizingMaskIntoConstraints = false
         return chart
@@ -181,5 +183,19 @@ class TableHeaderView: UIView {
     @objc private func filterApply(segment: UISegmentedControl) -> Void {
         yearSegment.changeUnderlinePosition()
         self.delegate?.didChangeSelectorIndex(idx: segment.selectedSegmentIndex)
+    }
+    private func setupChartView() {
+        
+    }
+    //MARK: CHART
+    public func loadData() {
+        let set1 = LineChartDataSet(entries: dataSource?.provideDataSatu() ?? [], label: "satu")
+        let set2 = LineChartDataSet(entries: dataSource?.provideDataDua() ?? [], label: "dua")
+        let set3 = LineChartDataSet(entries: dataSource?.provideDataTiga() ?? [], label: "tiga")
+        let datas = LineChartData(dataSets: [
+            set1,set2,set3
+        ])
+        self.lineChart.data = datas
+       // self.lineChart.data = //dataSource?.provideData()
     }
 }

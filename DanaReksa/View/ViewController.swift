@@ -14,8 +14,10 @@ final class ViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tview = UITableView()
         tview.translatesAutoresizingMaskIntoConstraints = false
+        tview.register(BuyButtonTableViewCell.self, forCellReuseIdentifier: buyNowCellIdentifier)
         tview.register(DetailTableViewCell.self, forCellReuseIdentifier: detailCellIdentifier)
         tview.register(SecondaryTableViewCell.self, forCellReuseIdentifier: secondaryCellIdentifier)
+        tview.register(UITableViewCell.self, forCellReuseIdentifier: defaultCell)
         tview.backgroundColor = UIColor.surfaceDark
         return tview
     }()
@@ -31,6 +33,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     private let viewModel = ViewModelDelegate()
+    //MARK: View did load
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -136,9 +139,20 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
             return cell
         }
         if indexPath.section == 8 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: buyNowCellIdentifier, for: indexPath) as! BuyButtonTableViewCell
             if viewModel.imbalHasilData.count == 3 {
-                //cell.initializeBlueViews()
+                cell.initializeBlueViews()
             }
+            cell.selectionStyle = .none
+            cell.contentView.backgroundColor = UIColor.surfaceDark
+            return cell
+        }
+        //TODO: Add end cell
+        if indexPath.section == 9 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: defaultCell, for: indexPath)
+            cell.selectionStyle = .none
+            cell.contentView.backgroundColor = UIColor.surfaceDark
+            return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: secondaryCellIdentifier, for: indexPath) as! SecondaryTableViewCell
         cell.selectionStyle = .none
@@ -163,11 +177,8 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 7 {
-            return 30
-        }
-        if indexPath.section == 8 {
-            return 0
+        if indexPath.section == 7 || indexPath.section == 8 {
+            return 25
         }
         return UITableView.automaticDimension
     }
@@ -177,7 +188,7 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
             return 13
         }
         if section == 8 {
-            return 10
+            return 13
         }
         if section == 9 {
             return 0
